@@ -6,12 +6,11 @@ html {
   --color-white-30: rgba(255, 255, 255, .3);
   --color-white-20: rgba(255, 255, 255, .2);
   --color-white-10: rgba(255, 255, 255, .1);
-  --color-white-5: rgba(255, 255, 255, .05);
-  --color-primary: #FDC000;
-  --color-hover: #F86A05;
+  --color-white-5: rgba(137, 167, 28, 0.05);
+  --color-primary: #ea43f0;
+  --color-hover: rgb(105, 250, 61);
   --color-area: #1C212E;
 }
-
 body {
   background-color: var(--color-black);
   font-family: 'Roboto', sans-serif;
