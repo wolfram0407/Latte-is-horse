@@ -1,0 +1,152 @@
+/* Common */
+html {
+  --color-black: #0E111B;
+  --color-white: #FFF;
+  --color-white-50: rgba(255, 255, 255, .5);
+  --color-white-30: rgba(255, 255, 255, .3);
+  --color-white-20: rgba(255, 255, 255, .2);
+  --color-white-10: rgba(255, 255, 255, .1);
+  --color-white-5: rgba(255, 255, 255, .05);
+  --color-primary: #FDC000;
+  --color-hover: #F86A05;
+  --color-area: #1C212E;
+}
+
+body {
+  background-color: var(--color-black);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+  color: var(--color-white);
+}
+
+
+/* Container */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 40px 20px;
+  }
+}
+
+
+/* Button */
+.btn {
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-area);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background-color: var(--color-hover);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-hover);
+  color: var(--color-white);
+}
+
+
+.container {
+  padding-top: 40px;
+}
+
+.movie-details {
+  display: flex;
+  color: var(--color-white-60)
+}
+
+
+.movie-details .poster {
+  width: 400px;
+  height: calc(400px * 3/2);
+  margin-right: 70px;
+  border-radius: 10px;
+  background-color: var(--color-black);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.specs {
+  flex-grow: 1;
+}
+
+.specs .title {      
+  color: var(--color-primary);
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 30px;      
+}
+   
+.specs .labels {   
+  color: skyblue
+}
+
+.specs .labels span::after{
+  content: "\00b7";
+  margin: 0 8px;
+}
+.specs .labels span:last-child::after {
+  display: none;
+} 
+
+.plot {
+   margin-top: 20px;
+ }
+
+.rating-wrap {
+   display: flex;
+}
+.rating-wrap .rating {
+   display: flex;
+   align-items: center;
+   margin-right: 32px;
+ }
+h3 {    
+  margin: 24px 0 6px;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;  
+}
+
+.genres span::after{
+  content: "\00b7";
+  margin: 0 8px;
+}
+
+.genres span:last-child::after {
+  display: none;
+}
+
+.back {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  display: block;
+}

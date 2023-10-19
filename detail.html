@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/common.css" />
+  <link rel="stylesheet" href="./src/css/detail.css" />
+</head>
+
+<body>
+  <header>
+    <a href="/index.html" class="logo">
+      <span>KDH</span>
+    </a>
+    <nav>
+      <ul>
+        <li>
+          <a href="/index.html" class="header_home">
+            검색
+          </a>
+        </li>
+        <li>
+          <a href="/detail.html" class="header_info active">
+            정보
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- 클릭시  클래스 액티브 추가 -->
+
+  </header>
+  <div class="container detail">
+    <div class="movie-details">
+      <div class="poster"></div>
+      <div class="specs">
+        <div class="title"></div>
+        <div class="labels"></div>
+        <div class="plot"></div>
+        <div class="ratings">
+          <h3>Vote Average</h3>
+          <div class="rating-wrap">
+            <div class="rating">
+            </div>
+          </div>
+        </div>
+        <div class="companies">
+          <h3>Production Company</h3>
+        </div>
+        <div class="genres">
+          <h3>Genre</h3>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary back">
+        back
+      </button>
+    </div>
+
+</body>
+<script type="module">
+
+  import { findByOneDetail } from './src/movies.js'
+  import { drawItem_detail } from './src/drawByOne.js'
+  const url = new URL(window.location.href)
+  const urlParams = url.searchParams.get('id') ? url.searchParams.get('id') : 109445
+  const back = document.querySelector(".back")
+  let z = await findByOneDetail(urlParams)
+  draw(z)
+  back.addEventListener('click', () =>
+  {
+    history.go(-1)
+  })
+  function draw(x)
+  {
+    let text = ''
+    text += drawItem_detail(x)
+    return text
+  }
+</script>
+
+</html>
