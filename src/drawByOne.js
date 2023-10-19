@@ -1,7 +1,4 @@
 const baseurl = "https://image.tmdb.org/t/p/w500";
-const zz = "/NNxYkU70HPurnNCSiCjYAmacwm.jpg";
-const la = "https://image.tmdb.org/t/p/w50/NNxYkU70HPurnNCSiCjYAmacwm.jpg";
-const test = "https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg";
 
 const drawItem_detail = (movie) => {
   // draw poster
