@@ -9,7 +9,6 @@ const options = {
 
 const getMovies = async (page) => {
   const popularUrl = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
-
   try {
     let result = [];
     const res = await fetch(popularUrl, options);
@@ -26,7 +25,6 @@ const getMovies = async (page) => {
 
 const findByTitle = async (search, page) => {
   const searchUrl = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=ko-KR&page=${page}`;
-
   try {
     let result = [];
     const res = await fetch(searchUrl, options);
@@ -35,7 +33,6 @@ const findByTitle = async (search, page) => {
       let movie = data.results[temp];
       result.push(movie);
     }
-
     return result;
   } catch (err) {
     console.log(err);
@@ -44,7 +41,6 @@ const findByTitle = async (search, page) => {
 
 const findByOneDetail = async (search) => {
   const movieUrl = `https://api.themoviedb.org/3/movie/${search}?language=ko-KR`;
-
   try {
     const res = await fetch(movieUrl, options);
     const data = await res.json();

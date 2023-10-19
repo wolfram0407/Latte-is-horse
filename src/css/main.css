@@ -159,22 +159,9 @@
   margin-bottom: 30px;
 }
 
-.the-movie .title.skeleton {
-  height: 70px;
-}
-
 .the-movie .labels {
   color: var(--color-primary);
   margin-bottom: 20px;
-}
-
-.the-movie .labels.skeleton {
-  height: 30px;
-}
-
-.the-movie .plot.skeleton {
-  width: 80%;
-  height: 400px;
 }
 
 .the-movie h3 {
@@ -204,49 +191,6 @@
     margin-top: 50px;
   }
 }
-
-/* routes/About */
-.about .photo {
-  width: 230px;
-  height: 230px;
-  margin: 0 auto 20px;
-  border-radius: 10px;
-  background-size: cover;
-}
-
-.about .name {
-  font-family: "Oswald", sans-serif;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.about p {
-  line-height: 1.5;
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.about a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.about a:hover {
-  text-decoration: underline;
-}
-
-
-/* routes/NotFound */
-.not-found h1 {
-  font-size: 70px;
-  font-weight: 700;
-  color: var(--color-white-10);
-  text-align: center;
-}
-
-
-
-
 
 .movie-details .poster {
   width: 400px;
