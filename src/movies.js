@@ -10,14 +10,10 @@ const options = {
 const getMovies = async (page) => {
   const popularUrl = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
   try {
-    let result = [];
     const res = await fetch(popularUrl, options);
     const data = await res.json();
-    for (let temp in data.results) {
-      let movie = data.results[temp];
-      result.push(movie);
-    }
-    return result;
+
+    return data;
   } catch (error) {
     console.log(error);
   }
