@@ -12,7 +12,7 @@ let x = await getMovies(page);
 let text = draw(x.results);
 moviesEl.innerHTML = text;
 let findText = null;
-
+inputEl.focus();
 btnEl.addEventListener("click", async () => {
   page = 1;
   findText = inputEl.value;
@@ -20,15 +20,17 @@ btnEl.addEventListener("click", async () => {
     alert("please input search item");
   } else {
     let y = await findByTitle(findText, page);
-    if (y.length < 20) {
+    if (y.results.length < 20) {
       viewMoreEl.setAttribute("class", "hidden");
     }
     text = draw(y.results);
     moviesEl.innerHTML = text;
   }
+  inputEl.focus();
 });
 viewMoreEl.addEventListener("click", async () => {
   page += 1;
+  console.log(findText);
   if (findText) {
     let add = await findByTitle(findText, page);
     text += draw(add.results);
@@ -37,6 +39,7 @@ viewMoreEl.addEventListener("click", async () => {
     text += draw(add.results);
   }
   moviesEl.innerHTML = text;
+  inputEl.focus();
 });
 
 function draw(x) {
