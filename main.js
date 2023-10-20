@@ -31,10 +31,10 @@ viewMoreEl.addEventListener("click", async () => {
   page += 1;
   if (findText) {
     let add = await findByTitle(findText, page);
-    text += draw(add);
+    text += draw(add.results);
   } else {
     let add = await getMovies(page);
-    text += draw(add);
+    text += draw(add.results);
   }
   moviesEl.innerHTML = text;
 });
