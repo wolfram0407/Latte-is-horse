@@ -12,7 +12,6 @@ const getMovies = async (page) => {
   try {
     const res = await fetch(popularUrl, options);
     const data = await res.json();
-
     return data;
   } catch (error) {
     console.log(error);
@@ -22,14 +21,9 @@ const getMovies = async (page) => {
 const findByTitle = async (search, page) => {
   const searchUrl = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=ko-KR&page=${page}`;
   try {
-    let result = [];
     const res = await fetch(searchUrl, options);
     const data = await res.json();
-    for (let temp in data.results) {
-      let movie = data.results[temp];
-      result.push(movie);
-    }
-    return result;
+    return data;
   } catch (err) {
     console.log(err);
   }

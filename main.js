@@ -23,7 +23,7 @@ btnEl.addEventListener("click", async () => {
     if (y.length < 20) {
       viewMoreEl.setAttribute("class", "hidden");
     }
-    text = draw(y);
+    text = draw(y.results);
     moviesEl.innerHTML = text;
   }
 });
