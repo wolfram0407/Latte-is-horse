@@ -8,17 +8,20 @@ const options = {
 };
 const kofic_movie_List = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
 const keys = "?key=8c82591d207517bee53548604aaff88d";
+
+// 일간
 const targetDt = "&targetDt=20231022";
+// 주간
 
 const getMovies = async (page) => {
   const popularUrl2 = kofic_movie_List + keys + targetDt;
-
-  const popularUrl = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
   try {
     let movie_data = [];
     const res_kofic = await fetch(popularUrl2);
     const data_kofic = await res_kofic.json();
+
     let temp = data_kofic.boxOfficeResult.dailyBoxOfficeList;
+
     for (let a in temp) {
       //const {} = 구조분해 하자! 데이터 결정되면
       let title = temp[a].movieNm;
