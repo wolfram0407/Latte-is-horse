@@ -11,25 +11,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./src/css/common.css" />
-  <link rel="stylesheet" href="./src/css/detail.css" />
-  <script type="module" src="./detail.js" defer></script>
+  <link rel="stylesheet" href="src/css/common.css" />
+  <link rel="stylesheet" href="src/css/detail.css" />
+  <script type="module" src="detail.js" defer></script>
 </head>
 
 <body>
   <header>
-    <a href="/index.html" class="logo">
+    <a href="index.html" class="logo">
       <span>KDH</span>
     </a>
     <nav>
       <ul>
         <li>
-          <a href="/index.html" class="header_home">
+          <a href="index.html" class="header_home">
             검색
           </a>
         </li>
         <li>
-          <a href="/detail.html" class="header_info active">
+          <a href="detail.html" class="header_info active">
             정보
           </a>
         </li>
@@ -59,8 +59,21 @@
         <div class="genres">
           <h3>Genre</h3>
         </div>
+        <div class="review">
+          <h3>Review</h3>
+          <div class="comment-list">
+            <div class="uploaded-comments">재밌어여!</div>
+            <div class="uploaded-comments">강추 강추~</div>
+            <div class="uploaded-comments">강추 강추~</div>
+            <div class="uploaded-comments">강추 강추~</div>
+            <div class="uploaded-comments">강추 강추~</div>
+            <div class="uploaded-comments">이렇게 감동적일 수가,,</div>
+          </div>
+          <input type="text" placeholder="Write a comment." class="writing-comment">
+        </div>
       </div>
     </div>
+
     <div>
       <button class="btn btn-primary back">
         back
