@@ -1,10 +1,11 @@
 const baseurl = "https://image.tmdb.org/t/p/w500";
 const drawItems = (movie) => {
-  const imageUrl = baseurl + movie.poster_path;
+  const imageUrl = baseurl + movie.path;
   const url = new URL(window.location.href).host;
   const urls = "http://" + url + "/detail.html?id=" + movie.id;
-  let name = movie.title ? movie.title : movie.original_title;
-  let date = movie.first_air_date ? movie.first_air_date : movie.release_date;
+  let name = movie.movieNm;
+  let date = movie.openDt;
+
   let text = `  
       <a class="movie" href="${urls}" style="background-image:url(${imageUrl})">
         <div class="info">
