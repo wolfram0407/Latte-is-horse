@@ -11,6 +11,7 @@ let page = url.searchParams.get("page") ? url.searchParams.get("page") : 1;
 let x = await getMovies(page);
 let text = draw(x.results);
 moviesEl.innerHTML = text;
+
 let findText = null;
 inputEl.focus();
 btnEl.addEventListener("click", async () => {
@@ -30,7 +31,7 @@ btnEl.addEventListener("click", async () => {
 });
 viewMoreEl.addEventListener("click", async () => {
   page += 1;
-  console.log(findText);
+
   if (findText) {
     let add = await findByTitle(findText, page);
     text += draw(add.results);

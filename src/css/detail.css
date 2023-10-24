@@ -7,7 +7,6 @@ body {
   color: var(--color-white);
 }
 
-
 /* Container */
 .container {
   max-width: 1120px;
@@ -26,7 +25,6 @@ body {
     padding: 40px 20px;
   }
 }
-
 
 /* Button */
 .btn {
@@ -57,7 +55,6 @@ body {
   color: var(--color-white);
 }
 
-
 .container {
   padding-top: 40px;
 }
@@ -66,7 +63,6 @@ body {
   display: flex;
   color: var(--color-white-60)
 }
-
 
 .movie-details .poster {
   width: 400px;
