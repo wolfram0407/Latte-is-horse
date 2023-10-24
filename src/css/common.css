@@ -11,6 +11,7 @@ html {
   --color-hover: rgb(105, 250, 61);
   --color-area: #1C212E;
 }
+
 body {
   background-color: var(--color-black);
   font-family: 'Roboto', sans-serif;
