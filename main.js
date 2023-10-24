@@ -9,7 +9,9 @@ const inputEl = document.querySelector("input");
 let page = url.searchParams.get("page") ? url.searchParams.get("page") : 1;
 
 let x = await getMovies(page);
-let text = draw(x.results);
+let movies = x.boxOfficeResult.dailyBoxOfficeList;
+console.log(movies);
+let text = draw(movies);
 moviesEl.innerHTML = text;
 
 let findText = null;

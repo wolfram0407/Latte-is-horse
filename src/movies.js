@@ -1,16 +1,9 @@
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjM5OTQ5MDNkZWZlNjNlMDEzYTRmNzE0YWVlNzg2YiIsInN1YiI6IjY1MmY3YWI1MzU4ZGE3NWI1ZjdiMDAyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V7EuTjSL9EYom7fy58GEjhQqMBdM_U11AqVOQrR1AfY",
-  },
-};
-
 const getMovies = async (page) => {
-  const popularUrl = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
+  const popularUrl = kofic_movie_List + keys + targetDt;
+
   try {
-    const res = await fetch(popularUrl, options);
+    //const res = await fetch(popularUrl, options);
+    const res = await fetch(popularUrl);
     const data = await res.json();
     return data;
   } catch (error) {
