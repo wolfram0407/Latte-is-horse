@@ -198,6 +198,21 @@ h3 {
   align-self: center;
 }
 
+.uploaded-comments p {
+  width: 1em;
+  height: 1rem;
+  float: right;
+  margin-top: 0.3rem;
+  margin-right: 1rem;
+  background-color: var(--color-black);
+  opacity: 0.8;
+  border-radius: 20px;
+}
+
+.uploaded-comments p:hover {
+  background-color: var(--color-white);
+}
+
 .back {
   width: 100%;
   max-width: 400px;
