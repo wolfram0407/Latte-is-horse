@@ -5,8 +5,9 @@ const drawItems = (movie) => {
   const urls = "http://" + url + "/detail.html?id=" + movie.id;
   let name = movie.title ? movie.title : movie.original_title;
   let date = movie.first_air_date ? movie.first_air_date : movie.release_date;
+
   let text = `  
-      <a class="movie" href="${urls}" style="background-image:url(${imageUrl})">
+      <a class="movie swiper-slide" href="${urls}" style="background-image:url(${imageUrl})">
         <div class="info">
           <div class="title">${name}</div>
           <div class="year">${date}</div>

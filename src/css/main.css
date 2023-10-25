@@ -1,36 +1,10 @@
 
-/* Headline */
-.headline {
-  margin-bottom: 40px;
-}
-
-.headline h1 {
-  font-family: "Oswald", sans-serif;
-  font-size: 40px;
-  line-height: 1;
-  margin-bottom: 40px;
-}
-
-.headline h1 span {
-  color: var(--color-hover);
-}
-
-.headline p {
-  color: var(--color-white-30);
-}
-
-@media (max-width: 600px) {
-  .headline h1 {
-    color: var(--color-hover);
-  }
-}
-
-
 /* components/Search */
 .search {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
+  width: 1240px;
 }
 
 .search input {
@@ -41,6 +15,7 @@
   border: none;
   outline: none;
   font-size: 14px;
+  margin-right: 20px;
   color: var(--color-white);
   background-color: var(--color-area);
 }
@@ -54,29 +29,30 @@
   max-width: 250px;
 }
 
-
 /* components/MovieList */
+.comming-list,
 .movie-list {
   padding: 20px;
   border-radius: 4px;
   background-color: var(--color-area);
+  overflow: hidden;
+  position: relative;
 }
-
+.comming-list .message,
 .movie-list .message {
   color: var(--color-primary);
   font-size: 20px;
   text-align: center;
 }
-
+.comming-list .commings,
 .movie-list .movies {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  gap: 35px;
 }
 
 
-/* components/MovieItem */
+/* MovieItem */
+.commings .movie,
 .movies .movie {
   --width: 200px;
   width: var(--width);
@@ -85,9 +61,8 @@
   background-color: var(--color-black);
   background-size: cover;
   overflow: hidden;
-  position: relative;
 }
-
+.commings .movie:hover::after,
 .movies .movie:hover::after {
   content: "";
   position: absolute;
@@ -97,7 +72,7 @@
   right: 0;
   border: 6px solid var(--color-primary);
 }
-
+.commings .movie .info,
 .movies .movie .info {
   background-color: rgba(14, 17, 27, .3);
   backdrop-filter: blur(10px);
@@ -110,155 +85,73 @@
   left: 0;
   bottom: 0;
 }
-
+.commings .movie .info .year,
 .movies .movie .info .year {
   color: var(--color-primary);
 }
-
+.commings .movie .info .title,
 .movies .movie .info .title {
   color: var(--color-white);
 }
 
-
-/* components/MovieListMore */
-.view-more {
+/* Swiper  */ 
+.comming-list.swiper,
+.movie-list.swiper {
   width: 100%;
-  max-width: 300px;
+  height: 300px;
   margin: 20px auto;
+}
+
+.swiper-slide {
+  text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px !important;
+}
+
+.swiper-slide img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
-
-
-/* routes/Movie */
-.the-movie {
-  color: var(--color-white-50);
+.swiper-prev2,
+.swiper-next2,
+.swiper-prev,
+.swiper-next {
+  width: 42px;
+  height: 42px;
+  outline: none;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 42%;
+  z-index: 1;
+  cursor: pointer;
   display: flex;
-  gap: 70px;
-}
-
-.the-movie .poster {
-  flex-shrink: 0;
-  --width: 500px;
-  width: var(--width);
-  height: calc(var(--width) * 3 / 2);
-  border-radius: 10px;
-  background-size: cover;
-  background-color: var(--color-area);
-}
-
-.the-movie .specs {
-  flex-grow: 1;
-}
-
-.the-movie .title {
-  font-family: "Oswald", sans-serif;
-  font-size: 70px;
-  line-height: 1;
-  color: var(--color-white);
-  margin-bottom: 30px;
-}
-
-.the-movie .labels {
-  color: var(--color-primary);
-  margin-bottom: 20px;
-}
-
-.the-movie h3 {
-  font-family: "Oswald", sans-serif;
-  font-size: 20px;
-  color: var(--color-white);
-  margin: 24px 0 6px;
-}
-
-@media (max-width: 1200px) {
-  .the-movie {
-    gap: 30px;
-  }
-
-  .the-movie .poster {
-    --width: 300px;
-  }
-}
-
-@media (max-width: 720px) {
-  .the-movie {
-    display: block;
-  }
-
-  .the-movie .title {
-    font-size: 50px;
-    margin-top: 50px;
-  }
-}
-
-.movie-details .poster {
-  width: 400px;
-  height: calc(400px * 3/2);
-  margin-right: 70px;
-  border-radius: 10px;
-  background-color: var(--color-black);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.specs {
-  flex-grow: 1;
-}
-
-.specs .title {
-  color: var(--color-primary);
-  font-family: "Oswald", sans-serif;
-  font-size: 40px;
-  line-height: 1;
-  margin-bottom: 30px;
-}
-
-.specs .labels {
-  color: skyblue
-}
-
-.specs .labels span::after {
-  content: "\00b7";
-  margin: 0 8px;
-}
-
-.specs .labels span:last-child::after {
-  display: none;
-}
-
-.plot {
-  margin-top: 20px;
-}
-
-.rating-wrap {
-  display: flex;
-}
-
-.rating-wrap .rating {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-right: 32px;
+  transition: .3s;
+}
+.swiper-prev2,
+.swiper-prev {
+  left: 1%;
+}
+.swiper-next2,
+.swiper-next {
+  right: 1%;
+
 }
 
-h3 {
-  margin: 24px 0 6px;
-  color: white;
-  font-family: "Oswald", sans-serif;
-  font-size: 20px;
+.swiper-prev2:hover,
+.swiper-next2:hover,
+ .swiper-prev:hover,
+ .swiper-next:hover {
+  background-color: #5726c7;
+  color: #fff;
 }
 
-.genres span::after {
-  content: "\00b7";
-  margin: 0 8px;
-}
-
-.genres span:last-child::after {
-  display: none;
-}
-
-.hidden{
-  display: none;
-}

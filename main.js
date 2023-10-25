@@ -1,46 +1,29 @@
-import { getMovies, findByTitle } from "./src/js/movies.js";
+import { getMovies } from "./src/js/movies.js";
 import { drawItems } from "./src/js/drawItems.js";
 
 const moviesEl = document.querySelector(".movies");
+const commingEl = document.querySelector(".commings");
 const btnEl = document.querySelector(".btn");
-const viewMoreEl = document.querySelector(".view-more");
 const url = new URL(window.location.href);
 const inputEl = document.querySelector("input");
 let page = url.searchParams.get("page") ? url.searchParams.get("page") : 1;
 
-let x = await getMovies(page);
+let x = await getMovies(page, 0);
 let text = draw(x);
 moviesEl.innerHTML = text;
+let z = await getMovies(page, 1);
+let temp = draw(z);
+commingEl.innerHTML = temp;
 
 let findText = null;
 inputEl.focus();
 btnEl.addEventListener("click", async () => {
-  page = 1;
   findText = inputEl.value;
   if (!findText) {
     alert("please input search item");
   } else {
-    let y = await findByTitle(findText, page);
-    if (y.results.length < 20) {
-      viewMoreEl.setAttribute("class", "hidden");
-    }
-    text = draw(y.results);
-    moviesEl.innerHTML = text;
+    location.href = `./search.html?search=${findText}`;
   }
-  inputEl.focus();
-});
-viewMoreEl.addEventListener("click", async () => {
-  page += 1;
-
-  if (findText) {
-    let add = await findByTitle(findText, page);
-    text += draw(add.results);
-  } else {
-    let add = await getMovies(page);
-    text += draw(add.results);
-  }
-  moviesEl.innerHTML = text;
-  inputEl.focus();
 });
 
 function draw(x) {
@@ -48,5 +31,40 @@ function draw(x) {
   for (let i = 0; i < x.length; i++) {
     text += drawItems(x[i]);
   }
+
   return text;
 }
+
+var swiper = new Swiper(".mySwiper", {
+  // autoplay: {
+  //   delay: 100,
+  // },
+  slidesPerView: 5,
+  spaceBetween: 10,
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-next",
+    prevEl: ".swiper-prev",
+  },
+});
+
+var swiper = new Swiper(".mySwiper2", {
+  // autoplay: {
+  //   delay: 200,
+  // },
+  slidesPerView: 5,
+  spaceBetween: 10,
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-next2",
+    prevEl: ".swiper-prev2",
+  },
+});
