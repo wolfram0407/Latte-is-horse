@@ -1,5 +1,5 @@
-import { findByOneDetail } from "./src/movies.js";
-import { drawItem_detail } from "./src/drawByOne.js";
+import { findByOneDetail } from "./src/js/movies.js";
+import { drawItem_detail } from "./src/js/drawByOne.js";
 const url = new URL(window.location.href);
 
 const urlParams = url.searchParams.get("id") ? url.searchParams.get("id") : 109445;

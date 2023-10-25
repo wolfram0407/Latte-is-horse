@@ -6,36 +6,18 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNjM5OTQ5MDNkZWZlNjNlMDEzYTRmNzE0YWVlNzg2YiIsInN1YiI6IjY1MmY3YWI1MzU4ZGE3NWI1ZjdiMDAyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.V7EuTjSL9EYom7fy58GEjhQqMBdM_U11AqVOQrR1AfY",
   },
 };
+// 일간
 const kofic_movie_List = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json";
 const keys = "?key=8c82591d207517bee53548604aaff88d";
-
-// 일간
 const targetDt = "&targetDt=20231022";
-// 주간
 
 const getMovies = async (page) => {
-  const popularUrl2 = kofic_movie_List + keys + targetDt;
+  const popularUrl = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
   try {
-    let movie_data = [];
-    const res_kofic = await fetch(popularUrl2);
-    const data_kofic = await res_kofic.json();
-
-    let temp = data_kofic.boxOfficeResult.dailyBoxOfficeList;
-
-    for (let a in temp) {
-      //const {} = 구조분해 하자! 데이터 결정되면
-      let title = temp[a].movieNm;
-      let start_year = temp[a].openDt.slice(0, 4);
-      let path = await search_Posts(title, start_year);
-      let data = {
-        ...temp[a],
-        path: path.path,
-        id: path.id,
-      };
-      movie_data.push(data);
-    }
-
-    return movie_data;
+    const res = await fetch(popularUrl, options);
+    const data = await res.json();
+    let temp = data.results;
+    return temp;
   } catch (error) {
     console.log(error);
   }

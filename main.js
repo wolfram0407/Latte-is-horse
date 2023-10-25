@@ -1,5 +1,5 @@
-import { getMovies, findByTitle } from "./src/movies.js";
-import { drawItems } from "./src/drawItems.js";
+import { getMovies, findByTitle } from "./src/js/movies.js";
+import { drawItems } from "./src/js/drawItems.js";
 
 const moviesEl = document.querySelector(".movies");
 const btnEl = document.querySelector(".btn");
