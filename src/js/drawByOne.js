@@ -38,6 +38,7 @@ const drawItem_detail = (movie) => {
     let a = genres.children.item(v);
     a.innerHTML = `${movie.genres[i].name}`;
   }
+  return true;
 };
 
 export { drawItem_detail };
