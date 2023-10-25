@@ -14,22 +14,45 @@ function draw(x) {
 };
 
 let saveinfo = function () {
-  let reviewer = document.getElementById("review-id").value;
-  let reviewcontent = document.getElementById("review-text").value;
-  let password = document.getElementById("review-pw").value;
-  let userInfo = { user: reviewer, review: reviewcontent, pw: password };
+  let reviewer = document.getElementById("review-id");
+  let reviewcontent = document.getElementById("review-text");
+  let password = document.getElementById("review-pw");
+  let userInfo = { user: reviewer.value, review: reviewcontent.value, pw: password.value, movieId: z.id, date: new Date().getTime() };
   // if (!Boolean(reviewer) || !Boolean(reviewcontent) || !Boolean(password)) {
   //   alert("빈칸을 모두 입력해주세요!");
   // } else if (typeof password !== 'number') {
   //   console.log(typeof password);
-  //   alert("비밀번호는 숫자만 입력 가능합니다!");
+  //   alert("비밀번호는 숫자만 입력 가능합니다!"); //비밀번호칸의 숫자가 문자열로 들어감
   // } else if (password.length < 4) {
   //   alert("비밀번호는 4자리 이상입니다!");
   // } else {
-  localStorage.setItem(`${reviewer}Info-${z.id}`, JSON.stringify(userInfo));
+  localStorage.setItem(`${z.id}:${reviewer.value}`, JSON.stringify(userInfo));
   alert("저장 완료!");
+  // reviewer.value = "";
+  // reviewcontent.value = "";
+  // password.value = "";
+  window.location.reload();
 };
 
-document.getElementById("submitBtn").addEventListener("click", function() {
+document.getElementById("submitBtn").addEventListener("click", function () {
   saveinfo();
 });
+
+for (let i = 0; i < localStorage.length; i++) {
+  let eachInfo = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`));
+  let eachUser = eachInfo.user;
+  let eachReview = eachInfo.review;
+  if (localStorage.key(i).indexOf(z.id) != -1) {
+    let temp_html = document.createElement('div');
+    temp_html.className = 'review';
+    temp_html.innerHTML = `
+                <div>${eachUser}</div>
+                <div>${eachReview}</div>
+                <div class="review-actions">
+                    <button class="delete-button">삭제</button>
+                </div>
+            `;
+    let reviewList = document.getElementById("review-list");
+    reviewList.appendChild(temp_html);
+  };
+}
