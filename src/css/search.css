@@ -1,0 +1,63 @@
+
+/* components/MovieList */
+.searched-list {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: var(--color-area);
+}
+
+.searched-list .message {
+  color: var(--color-primary);
+  font-size: 20px;
+  text-align: center;
+}
+
+.searched-list .searcheds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* components/MovieItem */
+.searcheds .movie {
+  --width: 200px;
+  width: var(--width);
+  height: calc(var(--width) * 3 / 2);
+  border-radius: 4px;
+  background-color: var(--color-black);
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.searcheds .movie:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 6px solid var(--color-primary);
+}
+
+.searcheds .movie .info {
+  background-color: rgba(14, 17, 27, .3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  padding: 14px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.searcheds .movie .info .year {
+  color: var(--color-primary);
+}
+
+.searcheds .movie .info .title {
+  color: var(--color-white);
+}

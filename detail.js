@@ -1,11 +1,16 @@
-import { findByOneDetail } from "./src/movies.js";
-import { drawItem_detail } from "./src/drawByOne.js";
-const url = new URL(window.location.href);
+import { findByOneDetail } from "./src/js/movies.js";
+import { drawItem_detail } from "./src/js/drawByOne.js";
 
-const urlParams = url.searchParams.get("id") ? url.searchParams.get("id") : 109445;
+const url = new URL(window.location.href);
+const headerInfo = document.querySelector(".header_info");
+headerInfo.style.visibility = "visible";
+headerInfo.href = url.href;
+const urlParams = url.searchParams.get("id");
 const back = document.querySelector(".back");
-let z = await findByOneDetail(urlParams);
-draw(z);
+let getMovie = await findByOneDetail(urlParams);
+
+drawItem_detail(getMovie);
+
 back.addEventListener("click", () => {
   history.go(-1);
 });
@@ -17,7 +22,7 @@ let saveinfo = function () {
   let reviewer = document.getElementById("review-id");
   let reviewcontent = document.getElementById("review-text");
   let password = document.getElementById("review-pw");
-  let userInfo = { user: reviewer.value, review: reviewcontent.value, pw: password.value, movieId: z.id, date: new Date().getTime() };
+  let userInfo = { user: reviewer.value, review: reviewcontent.value, pw: password.value, movieId: getMovie.id, date: new Date().getTime() };
   // if (!Boolean(reviewer) || !Boolean(reviewcontent) || !Boolean(password)) {
   //   alert("빈칸을 모두 입력해주세요!");
   // } else if (typeof password !== 'number') {
@@ -26,7 +31,7 @@ let saveinfo = function () {
   // } else if (password.length < 4) {
   //   alert("비밀번호는 4자리 이상입니다!");
   // } else {
-  localStorage.setItem(`${z.id}:${reviewer.value}`, JSON.stringify(userInfo));
+  localStorage.setItem(`${getMovie.id}:${reviewer.value}`, JSON.stringify(userInfo));
   alert("저장 완료!");
   // reviewer.value = "";
   // reviewcontent.value = "";
@@ -42,7 +47,7 @@ for (let i = 0; i < localStorage.length; i++) {
   let eachInfo = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`));
   let eachUser = eachInfo.user;
   let eachReview = eachInfo.review;
-  if (localStorage.key(i).indexOf(z.id) != -1) {
+  if (localStorage.key(i).indexOf(getMovie.id) != -1) {
     let temp_html = document.createElement('div');
     temp_html.className = 'review';
     temp_html.innerHTML = `
