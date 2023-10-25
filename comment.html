@@ -33,11 +33,11 @@
         font-family: "Oswald", sans-serif;
         font-size: 20px;
       }
-      #input {
+      #inputBox {
         display: flex;
         flex-direction: column;
       }
-      #input #userName {
+      #inputBox #userName {
         width: 20%;
         height: 20px;
         outline: none;
@@ -50,7 +50,7 @@
         color: honeydew;
         background-color: var(--color-black);
       }
-      #input #password {
+      #inputBox #password {
         width: 20%;
         height: 20px;
         outline: none;
@@ -62,7 +62,7 @@
         color: honeydew;
         background-color: var(--color-black);
       }
-      #input #reviewText {
+      #inputBox #reviewText {
         width: 100%;
         resize: none;
         outline: none;
@@ -142,7 +142,7 @@
       <div class="Reviews">
         <div class="myReviews">MY REVIEW</div>
         <div id="reviewFrom">
-            <div id="input" class="inputBox">
+            <div id="inputBox" class="input">
               <div id="userBox">
                 <input type="text" id="userName" placeholder="작성자" />
                 <input type="password" id="password" placeholder="비밀번호" />
@@ -161,6 +161,58 @@
           <div id="reviewField"></div>
         </div>
       </div>
+
     </div>
+
+   <script>     
+    let userName = document.getElementById("userName");
+    let passwordInput = document.getElementById("password");
+    let reviewText = document.getElementById("reviewText");
+    let reviewBtn = document.getElementById("reviewBtn");
+
+    reviewBtn.addEventListener("click", () => {
+      let user = userName.value;
+      let password = passwordInput.value;
+      let review = reviewText.value;
+
+      let userData = {
+        user: user,
+        password: password,
+        review: review
+      };
+
+      let userDataJSON = JSON.stringify(userData);
+      localStorage.setItem(user, userDataJSON);
+      alert("리뷰가 작성되었습니다");
+
+      userName.value = "";
+      passwordInput.value = "";
+      reviewText.value = "";
+
+      displayReviews();
+    });
+
+    function displayReviews() {
+      let reviewField = document.getElementById("reviewField");
+
+      for(let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let userDataJSON = localStorage.getItem(key);
+
+        let userData = JSON.parse(userDataJSON);
+
+        let user = userData.user;
+        let review = userData.review;
+
+        let reviewElement = document.createElement("div");
+        reviewElement.className = "list";
+        reviewElement.innerHTML = `<p>${user}</p>${review}`;
+        reviewField.appendChild(reviewElement);
+      }
+    }
+    displayReviews();
+   </script>
+
+
   </body>
 </html>
