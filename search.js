@@ -1,28 +1,27 @@
 import { findByTitle } from "./src/js/movies.js";
 import { drawItems } from "./src/js/drawItems.js";
 
-const moviesEl = document.querySelector(".searchs");
-const searchBtn = document.querySelector(".searchbtn");
+const moviesEl = document.querySelector(".searcheds");
+const searchedBtn = document.querySelector(".searchedBtn");
+const inputEl = document.querySelector(".searchedInput");
+
 const url = new URL(window.location.href);
 
 let findText = null;
-const inputEl = document.querySelector(".searchInput");
 let search = url.searchParams.get("search");
+
 inputEl.value = search;
+let searched = await findByTitle(search, 1);
+moviesEl.innerHTML = draw(searched);
 inputEl.focus();
 
-let x = await findByTitle(search, 1);
-let text = draw(x);
-moviesEl.innerHTML = text;
-
-searchBtn.addEventListener("click", async () => {
+searchedBtn.addEventListener("click", async () => {
   findText = inputEl.value;
   if (!findText) {
     alert("please input search item");
   } else {
-    let x = await findByTitle(findText, 1);
-    let temp = draw(x);
-    moviesEl.innerHTML = temp;
+    let newSearched = await findByTitle(findText, 1);
+    moviesEl.innerHTML = draw(newSearched);
   }
 });
 

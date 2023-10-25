@@ -1,22 +1,19 @@
 import { getMovies } from "./src/js/movies.js";
 import { drawItems } from "./src/js/drawItems.js";
-
-const moviesEl = document.querySelector(".movies");
-const commingEl = document.querySelector(".commings");
+// 영화리스트
+const moviesEl = document.querySelector(".populars");
+const commingEl = document.querySelector(".upcomings");
 const btnEl = document.querySelector(".btn");
 const url = new URL(window.location.href);
 const inputEl = document.querySelector("input");
 let page = url.searchParams.get("page") ? url.searchParams.get("page") : 1;
-
-let x = await getMovies(page, 0);
-let text = draw(x);
-moviesEl.innerHTML = text;
-let z = await getMovies(page, 1);
-let temp = draw(z);
-commingEl.innerHTML = temp;
-
 let findText = null;
+let populars = await getMovies(page, 0);
+moviesEl.innerHTML = draw(populars);
+let upcomings = await getMovies(page, 1);
+commingEl.innerHTML = draw(upcomings);
 inputEl.focus();
+
 btnEl.addEventListener("click", async () => {
   findText = inputEl.value;
   if (!findText) {
@@ -31,11 +28,10 @@ function draw(x) {
   for (let i = 0; i < x.length; i++) {
     text += drawItems(x[i]);
   }
-
   return text;
 }
 
-var swiper = new Swiper(".mySwiper", {
+new Swiper(".mySwiper", {
   // autoplay: {
   //   delay: 100,
   // },
@@ -52,7 +48,7 @@ var swiper = new Swiper(".mySwiper", {
   },
 });
 
-var swiper = new Swiper(".mySwiper2", {
+new Swiper(".mySwiper2", {
   // autoplay: {
   //   delay: 200,
   // },
