@@ -31,7 +31,6 @@ const findByTitle = async (search, page) => {
     const res = await fetch(searchUrl, options);
     const data = await res.json();
     let temp = data.results;
-
     return temp;
   } catch (err) {
     console.log(err);
@@ -44,18 +43,6 @@ const findByOneDetail = async (search) => {
     const res = await fetch(movieUrl, options);
     const data = await res.json();
     return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const commingMovies = async () => {
-  try {
-    let url = "https://api.themoviedb.org/3/movie/upcoming?language=ko-KR&region=KR&page=1";
-    const res = await fetch(url, options);
-    const data = await res.json();
-    let temp = data.results;
-    return temp;
   } catch (err) {
     console.log(err);
   }
