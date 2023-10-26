@@ -17,12 +17,19 @@ back.addEventListener("click", () => {
 function draw(x) {
   drawItem_detail(x);
 };
+let parsingdata = JSON.parse(localStorage.getItem(`${getMovie.id}`));
 
 let saveinfo = function () {
-  let reviewer = document.getElementById("review-id");
-  let reviewcontent = document.getElementById("review-text");
-  let password = document.getElementById("review-pw");
-  let userInfo = { user: reviewer.value, review: reviewcontent.value, pw: password.value, movieId: getMovie.id, date: new Date().getTime() };
+  let reviewdata = [];
+  let reviewer = document.getElementById("userName");
+  let reviewcontent = document.getElementById("reviewText");
+  let password = document.getElementById("password");
+  let userInfo = {
+    user: reviewer.value,
+    review: reviewcontent.value,
+    pw: password.value,
+    date: new Date().getTime()
+  };
   // if (!Boolean(reviewer) || !Boolean(reviewcontent) || !Boolean(password)) {
   //   alert("빈칸을 모두 입력해주세요!");
   // } else if (typeof password !== 'number') {
@@ -31,15 +38,16 @@ let saveinfo = function () {
   // } else if (password.length < 4) {
   //   alert("비밀번호는 4자리 이상입니다!");
   // } else {
-  localStorage.setItem(`${getMovie.id}:${reviewer.value}`, JSON.stringify(userInfo));
+  if (Boolean(parsingdata)) {
+    reviewdata.push(...parsingdata);
+  }
+  reviewdata.push(userInfo);
+  localStorage.setItem(`${getMovie.id}`, JSON.stringify(reviewdata));
   alert("저장 완료!");
-  // reviewer.value = "";
-  // reviewcontent.value = "";
-  // password.value = "";
   window.location.reload();
 };
 
-document.getElementById("submitBtn").addEventListener("click", function () {
+document.getElementById("reviewBtn").addEventListener("click", function () {
   saveinfo();
 });
 
@@ -69,18 +77,17 @@ reviewData.sort((a, b) => {
 });
 
 // 정렬된 데이터를 사용하여 HTML을 생성
-const reviewList = document.getElementById("review-list");
-reviewData.forEach((item) => {
-  const temp_html = document.createElement("div");
-  temp_html.className = "review";
-  temp_html.innerHTML = `
-    <div id="username">${item.user}</div>
-    <div>${item.review}</div>
-    <div class="review-actions">
-      <button class="edit-button">수정</button>
-      <button class="delete-button">삭제</button>
-    </div>
-  `;
-  reviewList.appendChild(temp_html);
-});
-
+// const reviewList = document.getElementById("review-list");
+// reviewData.forEach((item) => {
+//   const temp_html = document.createElement("div");
+//   temp_html.className = "review";
+//   temp_html.innerHTML = `
+//     <div id="username">${item.user}</div>
+//     <div>${item.review}</div>
+//     <div class="review-actions">
+//       <button class="edit-button">수정</button>
+//       <button class="delete-button">삭제</button>
+//     </div>
+//   `;
+//   reviewList.appendChild(temp_html);
+// });
