@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/css/common.css" />
+    <link rel="stylesheet" href="./src/css/detail.css" />
+    <script type="module" src="./detail.js" defer></script>
+
+    <style>
+      .Reviews {
+        border-radius: 10px;
+        height: auto;
+        padding: 20px;
+        background-color: var(--color-area);
+      }
+      #reviewFrom {
+        margin: 10px 5px 20px 5px; 
+      }
+      .myReviews {
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+      }
+      #inputBox {
+        display: flex;
+        flex-direction: column;
+      }
+      #inputBox #userName {
+        width: 20%;
+        height: 20px;
+        outline: none;
+        margin-right: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        text-indent: 10px;
+        font-family: 'Roboto', sans-serif;
+        color: honeydew;
+        background-color: var(--color-black);
+      }
+      #inputBox #password {
+        width: 20%;
+        height: 20px;
+        outline: none;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        text-indent: 10px;
+        font-family: 'Roboto', sans-serif;
+        color: honeydew;
+        background-color: var(--color-black);
+      }
+      #inputBox #reviewText {
+        width: 100%;
+        resize: none;
+        outline: none;
+        padding: 10px 15px 10px 15px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: none;
+        font-family: 'Roboto', sans-serif;
+        color: honeydew;
+        background-color: var(--color-black);
+      }
+      .reviewdiv {
+        display: flex;
+        height: 90px;
+        margin-top: 10px;
+        position: relative;
+      }
+      #reviewBtn {
+        width: 18%;
+        height: 100%;
+        font-size: 16px;
+      }
+      .allReviews {
+        font-family: "Oswald", sans-serif;
+        font-size: 20px;
+      }
+      #reviewField {
+        margin-top: 15px;
+      }
+      
+     
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="/index.html" class="logo">
+        <span>KDH</span>
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="/index.html" class="header_home"> 검색 </a>
+          </li>
+          <li>
+            <a href="/detail.html" class="header_info active"> 정보 </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- 클릭시  클래스 액티브 추가 -->
+    </header>
+    <div class="container detail">
+      <div class="movie-details">
+        <div class="poster"></div>
+        <div class="specs">
+          <div class="title"></div>
+          <div class="labels"></div>
+          <div class="plot"></div>
+          <div class="ratings">
+            <h3>Vote Average</h3>
+            <div class="rating-wrap">
+              <div class="rating"></div>
+            </div>
+          </div>
+          <div class="companies">
+            <h3>Production Company</h3>
+          </div>
+          <div class="genres">
+            <h3>Genre</h3>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary back">back</button>
+      </div>
+
+      <div class="Reviews">
+        <div class="myReviews">MY REVIEW</div>
+        <div id="reviewFrom">
+            <div id="inputBox" class="input">
+              <div id="userBox">
+                <input type="text" id="userName" placeholder="작성자" />
+                <input type="password" id="password" placeholder="비밀번호" />
+              </div>
+            
+              <div class="reviewdiv">
+                <textarea id="reviewText" placeholder="리뷰 내용 작성"></textarea>
+                <button type="button" id="reviewBtn" class="btn btn-primary">
+                review
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="allReviews">ALL REVIEWS</div>
+          <div id="reviewField"></div>
+        </div>
+      </div>
+
+    </div>
+
+   <script>     
+    let userName = document.getElementById("userName");
+    let passwordInput = document.getElementById("password");
+    let reviewText = document.getElementById("reviewText");
+    let reviewBtn = document.getElementById("reviewBtn");
+
+    reviewBtn.addEventListener("click", () => {
+      let user = userName.value;
+      let password = passwordInput.value;
+      let review = reviewText.value;
+
+      let userData = {
+        user: user,
+        password: password,
+        review: review
+      };
+
+      let userDataJSON = JSON.stringify(userData);
+      localStorage.setItem(user, userDataJSON);
+      alert("리뷰가 작성되었습니다");
+
+      userName.value = "";
+      passwordInput.value = "";
+      reviewText.value = "";
+
+      displayReviews();
+    });
+
+    function displayReviews() {
+      let reviewField = document.getElementById("reviewField");
+
+      for(let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let userDataJSON = localStorage.getItem(key);
+
+        let userData = JSON.parse(userDataJSON);
+
+        let user = userData.user;
+        let review = userData.review;
+
+        let reviewElement = document.createElement("div");
+        reviewElement.className = "list";
+        reviewElement.innerHTML = `<p>${user}</p>${review}`;
+        reviewField.appendChild(reviewElement);
+      }
+    }
+    displayReviews();
+   </script>
+
+
+  </body>
+</html>

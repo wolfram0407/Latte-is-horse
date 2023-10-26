@@ -38,49 +38,7 @@ const drawItem_detail = (movie) => {
     let a = genres.children.item(v);
     a.innerHTML = `${movie.genres[i].name}`;
   }
-
-  //리뷰
-  let reviewtext = drawReview(movie);
-  const reviewCheck = document.querySelector(".review-check");
-  reviewCheck.innerHTML += `${reviewtext}`;
+  return true;
 };
 
-const drawReview = (movie) => {
-  //해당 movie의 id를 갖는 key값의 review를 화면에 표시한다.
-  //1, 2, 3 연속으로 나오게? 아니면 next를 눌러 하나씩 확인하도록?
-  let reviewCount = 0;
-  let text = "";
-  let getreview = "";
-  let keynum = 1;
-  let key = "key" + movie.id + "_" + String(keynum);
-
-  while (localStorage.getItem(key) !== null) {
-    let review = JSON.parse(localStorage.getItem(key));
-    console.log(review);
-    reviewCount++;
-    getreview += `
-    <div class="review-value" id = ${key}>
-      <span>작성자 : ${review.name} </span> <br>
-      <span> ${review.context} </span> <br>
-      <input type="password" id="edit-password" class="edit-password" placeholder="비밀번호4자리">
-      <button type="submit" id="remove-submitBtn" class="remove-submitBtn">리뷰삭제</button>
-    </div>
-    `;
-
-    key = "key" + movie.id + "_" + String(++keynum);
-  }
-
-  text = `<h4>리뷰 개수 : ${reviewCount}</h4>` + getreview;
-
-  //리뷰 없음
-  if (reviewCount === 0) {
-    text = `<h4>현재 리뷰가 존재하지 않습니다.</h4>`;
-  }
-
-  //const reviewCheck = document.querySelector(".review-check");
-  //reviewCheck.innerHTML = `${text}`;
-
-  return text;
-};
-
-export { drawItem_detail, drawReview };
+export { drawItem_detail };
