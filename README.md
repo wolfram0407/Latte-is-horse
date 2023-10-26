@@ -1,6 +1,5 @@
 # nbc_individual_1
 
-
 demo : https://charming-mermaid-9c649f.netlify.app/
 
 - 팀 과제 요구 사항 체크 리스트
