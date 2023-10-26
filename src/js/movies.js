@@ -26,9 +26,11 @@ const getMovies = async (page, idx) => {
 };
 
 const findByTitle = async (search, page) => {
-  const searchUrl = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=ko-KR&page=${page}`;
+  //const searchUrl = `https://api.themoviedb.org/3/search/multi?query=${search}&include_adult=false&language=ko-KR&page=${page}`;
+  const url = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=ko-KR&page=${page}`;
+
   try {
-    const res = await fetch(searchUrl, options);
+    const res = await fetch(url, options);
     const data = await res.json();
     let temp = data.results;
     return temp;
