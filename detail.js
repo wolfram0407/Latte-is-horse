@@ -47,6 +47,7 @@ const reviewValidation = async (review) => {
 
   return check;
 };
+<<<<<<< Updated upstream
 
 reviewsubmit.addEventListener("click", async () => {
   let username = document.querySelector(".review-name").value;
@@ -94,3 +95,5 @@ if (reviewremove) {
     history.go(-1);
   });
 }
+=======
+>>>>>>> Stashed changes
