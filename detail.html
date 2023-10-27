@@ -267,6 +267,7 @@
       return check;
     };
 
+    //리뷰 수정이나 삭제 시 비밀번호 입력, 이 이후에 또다시 validation 체크 하기
     const issamepassword = (userData, password) => {
       let isSame = true;
       if (password === "") {
