@@ -38,6 +38,7 @@ document.getElementById("reviewBtn").addEventListener("click", async function ()
   } else if (password.value.length < 4) {
     alert("비밀번호는 4자리 이상입니다!");
   } else {
+    //처음 parsingdata를 가져올때 key가 없으면 null을 넣기에 null을 제외하는 if문
     if (Boolean(parsingdata)) {
       reviewdata.push(...parsingdata);
     };
@@ -93,9 +94,10 @@ function displayReviews() {
 }
 displayReviews();
 
+//댓글 삭제
 document.querySelectorAll('.removeBtn').forEach(btn => btn.addEventListener('click', async (event) => { // 댓글 삭제
   event.preventDefault();
-
+  //html에 넣어놓은 index값을 참조
   const reviewIndex = event.target.parentElement.parentElement.parentElement.getAttribute("reviewIndex");
   const inputpw = prompt("비밀번호를 입력해주세요.");
 
@@ -106,9 +108,9 @@ document.querySelectorAll('.removeBtn').forEach(btn => btn.addEventListener('cli
     if (password === inputpw) {
       parsingdata.splice(reviewIndex, 1);
       leftdata.push(...parsingdata);
-      if (leftdata.length === 0) {
+      if (leftdata.length === 0) { //localStorage의 value가 빈 배열일때 key를 삭제
         localStorage.removeItem(`${getMovie.id}`);
-      } else {
+      } else { //빈 배열이 아니라면 다시 setItem으로 남은값을 저장
         localStorage.setItem(`${getMovie.id}`, JSON.stringify(leftdata));
       };
       alert("삭제 완료");
@@ -121,6 +123,7 @@ document.querySelectorAll('.removeBtn').forEach(btn => btn.addEventListener('cli
   }
 }));
 
+//댓글 수정
 document.querySelectorAll('.editBtn').forEach(btn => btn.addEventListener('click', async (event) => { 
   event.preventDefault();
 
@@ -133,7 +136,7 @@ document.querySelectorAll('.editBtn').forEach(btn => btn.addEventListener('click
     const editdata = [];
     if (password === inputpw) {
       const editreview = prompt("리뷰 내용 수정");
-      result.review = editreview;
+      result.review = editreview; //객체의 value를 수정
       editdata.push(...parsingdata);
       localStorage.setItem(`${getMovie.id}`, JSON.stringify(editdata));
       alert("수정 완료");
