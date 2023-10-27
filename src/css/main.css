@@ -1,3 +1,39 @@
+/* Genre Tags */
+#tags {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto 20px auto;
+}
+
+.tag {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+
+  border-radius: 4px;
+  height: 30px;
+  margin: 5px;
+  padding: 10px 25px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: .3s;
+
+  display: flex;
+  align-items: center;
+}
+
+.tag:hover {
+  background-color: var(--color-hover);
+  color: var(--color-white);
+}
+
+
+
 
 /* MovieList */
 .upcoming-list,
@@ -65,7 +101,7 @@
   color: var(--color-white);
 }
 
-/* Swiper  */ 
+/* Swiper  */
 .upcomings-list.swiper,
 .popular-list .swiper {
   width: 100%;
