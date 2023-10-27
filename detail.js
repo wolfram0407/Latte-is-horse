@@ -34,7 +34,7 @@ document.getElementById("reviewBtn").addEventListener("click", async function ()
   if (!Boolean(reviewer.value) || !Boolean(reviewcontent.value) || !Boolean(password.value)) {
     alert("빈칸을 모두 입력해주세요!");
   } else if (!Boolean(parseInt(password.value))) {
-    alert("비밀번호는 숫자만 입력 가능합니다!"); //비밀번호칸의 숫자가 문자열로 들어감
+    alert("비밀번호는 숫자만 입력 가능합니다!"); 
   } else if (password.value.length < 4) {
     alert("비밀번호는 4자리 이상입니다!");
   } else {
@@ -45,12 +45,8 @@ document.getElementById("reviewBtn").addEventListener("click", async function ()
     localStorage.setItem(`${getMovie.id}`, JSON.stringify(reviewdata));
     alert("리뷰가 작성되었습니다");
     console.log(password.value.length);
-    // reviewer.value = "";
-    // password.value = "";
-    // reviewcontent.value = "";
 
     window.location.reload();
-    // }
   }
 });
 
@@ -120,12 +116,12 @@ document.querySelectorAll('.removeBtn').forEach(btn => btn.addEventListener('cli
     } else {
       alert('비밀번호가 일치하지 않습니다.');
     }
-  } else if (inputpw !== null) { // 확인을 누를 시 비밀번호가 없을 경우
+  } else if (inputpw !== null) {
     alert('비밀번호를 입력해주세요!');
   }
 }));
 
-document.querySelectorAll('.editBtn').forEach(btn => btn.addEventListener('click', async (event) => { // 댓글 수정
+document.querySelectorAll('.editBtn').forEach(btn => btn.addEventListener('click', async (event) => { 
   event.preventDefault();
 
   const reviewIndex = event.target.parentElement.parentElement.parentElement.getAttribute("reviewIndex");
@@ -145,66 +141,7 @@ document.querySelectorAll('.editBtn').forEach(btn => btn.addEventListener('click
     } else {
       alert('비밀번호가 일치하지 않습니다.');
     }
-  } else if (inputpw !== null) { // 확인을 누를 시 비밀번호가 없을 경우
+  } else if (inputpw !== null) { 
     alert('비밀번호를 입력해주세요!');
   }
 }));
-// for (let i = 0; i < localStorage.length; i++) {
-//   let eachInfo = JSON.parse(localStorage.getItem(`${localStorage.key(i)}`));
-//   let eachUser = eachInfo.user;
-//   let eachReview = eachInfo.review;
-//   if (localStorage.key(i).indexOf(z.id) != -1) {
-//     let temp_html = `
-//         <div class="review">
-//             <div>${eachUser}</div>
-//             <div>${eachReview}</div>
-//             <div class="review-actions">
-//                 <button class="delete-button">삭제</button>
-//             </div>
-//         </div>
-//         `;
-//     let reviewList = document.getElementById("review-list");
-//     reviewList.append(temp_html);
-//   };
-// };
-
-// // 객체 배열을 생성하여 localStorage의 데이터를 저장
-// const reviewData = [];
-// for (let i = 0; i < localStorage.length; i++) {
-//   const key = localStorage.key(i);
-//   const eachInfo = JSON.parse(localStorage.getItem(key));
-//   const eachUser = eachInfo.user;
-//   const eachReview = eachInfo.review;
-//   const timestamp = eachInfo.date;
-
-//   // getMovie.id를 키에 포함하는 항목만 포함
-//   if (key.includes(getMovie.id)) {
-//     reviewData.push({
-//       key: key,
-//       user: eachUser,
-//       review: eachReview,
-//       date: timestamp
-//     });
-//   }
-// }
-
-// // reviewData를 타임스탬프 순으로 정렬
-// reviewData.sort((a, b) => {
-//   return a.date - b.date;
-// });
-
-// // 정렬된 데이터를 사용하여 HTML을 생성
-// const reviewList = document.getElementById("review-list");
-// reviewData.forEach((item) => {
-//   const temp_html = document.createElement("div");
-//   temp_html.className = "review";
-//   temp_html.innerHTML = `
-//     <div id="username">${item.user}</div>
-//     <div>${item.review}</div>
-//     <div class="review-actions">
-//       <button class="edit-button">수정</button>
-//       <button class="delete-button">삭제</button>
-//     </div>
-//   `;
-//   reviewList.appendChild(temp_html);
-// });
