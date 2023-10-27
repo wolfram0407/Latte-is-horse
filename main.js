@@ -4,7 +4,7 @@ import { weeklyBoxOffice } from "./weeklyBoxOffice.js";
 // 영화리스트
 const moviesEl = document.querySelector(".populars");
 const commingEl = document.querySelector(".upcomings");
-const weeklyEl = document.querySelector(".weekly");
+const weeklyEl = document.querySelector(".weeklys");
 const btnEl = document.querySelector(".btn");
 
 const url = new URL(window.location.href);
@@ -16,8 +16,8 @@ let populars = await getMovies(page, 0);
 moviesEl.innerHTML = draw(populars);
 let upcomings = await getMovies(page, 1);
 commingEl.innerHTML = draw(upcomings);
-let weekly = await weeklyBoxOffice();
-weeklyEl.innerHTML = draw(weekly);
+let weeklys = await weeklyBoxOffice();
+weeklyEl.innerHTML = draw(weeklys);
 inputEl.focus();
 
 btnEl.addEventListener("click", async () => {
