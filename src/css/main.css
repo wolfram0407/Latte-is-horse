@@ -27,11 +27,11 @@
   align-items: center;
 }
 
-.tag:hover {
+.tag:hover,
+.tag.highlight {
   background-color: var(--color-hover);
   color: var(--color-white);
 }
-
 
 
 
