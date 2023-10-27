@@ -118,3 +118,5 @@ function clearBtn() {
     tagsEl.append(clear);
   }
 }
+
+// movie.js 의 getMovies(), main.js 의 draw(), drawItem.js 사용하여 hrml에 뿌려야 함..
