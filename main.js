@@ -1,17 +1,23 @@
 import { getMovies } from "./src/js/movies.js";
 import { drawItems } from "./src/js/drawItems.js";
+import { weeklyBoxOffice } from "./weeklyBoxOffice.js";
 // 영화리스트
 const moviesEl = document.querySelector(".populars");
 const commingEl = document.querySelector(".upcomings");
+const weeklyEl = document.querySelector(".weeklys");
 const btnEl = document.querySelector(".btn");
+
 const url = new URL(window.location.href);
 const inputEl = document.querySelector("input");
 let page = url.searchParams.get("page") ? url.searchParams.get("page") : 1;
 let findText = null;
+
 let populars = await getMovies(page, 0);
 moviesEl.innerHTML = draw(populars);
 let upcomings = await getMovies(page, 1);
 commingEl.innerHTML = draw(upcomings);
+let weeklys = await weeklyBoxOffice();
+weeklyEl.innerHTML = draw(weeklys);
 inputEl.focus();
 
 btnEl.addEventListener("click", async () => {
