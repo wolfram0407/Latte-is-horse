@@ -5,7 +5,7 @@ const reviewValidation = (userData) => {
 
   let badcheck = true;
   badwords.find((element) => {
-    if (userData.review.includes(element) === true || userData.user.includes(element) === true || isCheckBadWord(userData.review)) {
+    if (userData.review.includes(element) === true || userData.user.includes(element) === true || !isCheckBadWord(userData.review)) {
       badcheck = false;
     }
   });
