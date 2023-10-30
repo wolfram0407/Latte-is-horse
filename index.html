@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sparta Movie</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparta Movie</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Google Material Icons-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-  <!--Google Material Icons-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
 
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./src/css/common.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <script type="module" defer src="./main.js"></script>
+  </head>
 
-  <link rel="stylesheet" href="./src/css/common.css" />
-  <link rel="stylesheet" href="./src/css/main.css" />
-  <script type="module" defer src="./main.js"></script>
-  <!-- 장르 js 추가 (test) -->
-  <script type="module" defer src="./drawByGenre.js"></script>
-</head>
+  <body>
+    <header>
+      <a href="/index.html" class="logo">
+        <span>Latte-is-horse</span>
+      </a>
+      <nav>
+        <ul>
+          <li>
+            <a href="/index.html" class="header_home active"> 검색 </a>
+          </li>
+          <li>
+            <a href="" class="header_info"> 정보 </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <router-view>
+      <div class="container">
+        <div class="headline">
+          <h1><span>TMDB API</span> THE OPEN MOVIE DATABASE</h1>
+        </div>
+        <div class="search">
+          <input value="" placeholder="Enter the movie title to search!" />
 
-<body>
-  <header>
-    <a href="/index.html" class="logo">
-      <span>Latte-is-horse</span>
-    </a>
-    <nav>
-      <ul>
-        <li>
-          <a href="/index.html" class="header_home active">
-            검색
-          </a>
-        </li>
-        <li>
-          <a href="" class="header_info">
-            정보
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <router-view>
-    <div class="container">
-      <div class="headline">
-        <h1>
-          <span>TMDB API</span> THE OPEN MOVIE DATABASE
-        </h1>
-      </div>
-      <div id="tags"></div>
-      <div class="search">
-        <input value="" placeholder="Enter the movie title to search!" />
+          <button class="btn btn-primary">Search!</button>
+        </div>
 
-        <button class="btn btn-primary">
-          Search!
-        </button>
-      </div>
-      <div class="popular">
-        <div class="title"> 인기차트</div>
-        <div class="popular-list swiper mySwiper">
-          <div class="populars swiper-wrapper"></div>
-          <div class="swiper-prev">
-            <span class="material-icons">arrow_back</span>
+        <div class="popular">
+          <div class="title">인기차트</div>
+          <div class="popular-list swiper mySwiper">
+            <div class="populars swiper-wrapper"></div>
+            <div class="swiper-prev">
+              <span class="material-icons">arrow_back</span>
+            </div>
+            <div class="swiper-next">
+              <span class="material-icons">arrow_forward</span>
+            </div>
           </div>
-          <div class="swiper-next">
-            <span class="material-icons">arrow_forward</span>
+        </div>
+
+        <div class="upcoming">
+          <div class="title">개봉예정</div>
+          <div class="upcoming-list swiper mySwiper2">
+            <div class="upcomings swiper-wrapper"></div>
+            <div class="swiper-prev2">
+              <span class="material-icons">arrow_back</span>
+            </div>
+            <div class="swiper-next2">
+              <span class="material-icons">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="weekly">
+          <div class="title">주말 박스오피스</div>
+          <div class="weekly-list swiper mySwiper3">
+            <div class="weeklys swiper-wrapper"></div>
+            <div class="swiper-prev3">
+              <span class="material-icons">arrow_back</span>
+            </div>
+            <div class="swiper-next3">
+              <span class="material-icons">arrow_forward</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="upcoming">
-        <div class="title"> 개봉예정</div>
-        <div class="upcoming-list swiper mySwiper2">
-          <div class="upcomings swiper-wrapper"></div>
-
-
-          <div class=" swiper-prev2">
-            <span class="material-icons">arrow_back</span>
-          </div>
-          <div class=" swiper-next2">
-            <span class="material-icons">arrow_forward</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </router-view>
-</body>
-
+    </router-view>
+  </body>
 </html>
