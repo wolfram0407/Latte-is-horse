@@ -1,7 +1,9 @@
-# nbc_individual_1
+# Latte is horse team
 
-<<<<<<< HEAD
-push test yujin
-=======
->>>>>>> 7c6f1f6410b0020dc1beed40151cc130c91b88ff
-demo : https://charming-mermaid-9c649f.netlify.app/
+## main
+
+1. TMDI Popular movie List
+
+2. TMDI upComming movie List
+
+3. 영화 진흥위원회 주말 차트

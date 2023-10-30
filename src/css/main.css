@@ -60,6 +60,7 @@
 .weeklys .movie .info {
   background-color: rgba(14, 17, 27, .3);
   backdrop-filter: blur(10px);
+  height: auto;
   width: 100%;
   padding: 14px;
   box-sizing: border-box;
@@ -72,11 +73,13 @@
 .upcomings .movie .info .year,
 .populars .movie .info .year,
 .weeklys .movie .info .year {
+  margin: 0;
   color: var(--color-primary);
 }
 .upcomings .movie .info .title,
 .populars .movie .info .title,
 .weeklys .movie .info .title {
+  margin: 0;
   color: var(--color-white);
 }
 
@@ -91,12 +94,12 @@
 
 .swiper-slide {
   text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px !important;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px !important;
 }
 
 .swiper-slide img {
