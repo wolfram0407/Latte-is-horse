@@ -1,7 +1,7 @@
 import { findByOneDetail } from "./movies.js";
 import { drawItem_detail } from "./drawByOne.js";
 import { displayReviews } from "./drawReviews.js";
-import { reviewValidation, isComparePassword, isCheckBadWord, editValidation} from "./validation.js";
+import { reviewValidation, isComparePassword, isCheckBadWord, editValidation } from "./validation.js";
 //헤더 정보 표시
 const headerInfo = document.querySelector(".header_info");
 headerInfo.style.visibility = "visible";
@@ -94,7 +94,11 @@ document.querySelectorAll(".editBtn").forEach((btn) =>
 
     if (isComparePassword(inputpw, password)) {
       const editreview = prompt("리뷰 내용 수정");
-      if (isCheckBadWord(editreview) && editValidation(editreview)) {
+      if (!isCheckBadWord(editreview)) {
+        alert("욕쓰지마세요 ");
+      } else if (!editValidation(editreview)) {
+        alert("너무 짧아요");
+      } else {
         result.review = editreview; //객체의 value를 수정
         editdata.push(...parsingdata);
         localStorage.setItem(`${getMovie.id}`, JSON.stringify(editdata));
