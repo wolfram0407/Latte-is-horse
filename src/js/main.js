@@ -16,7 +16,11 @@ let upcomings;
 let weeklys;
 try {
   populars = await getMovies(page, 0);
+
   upcomings = await getMovies(page, 1);
+  console.log(populars);
+  console.log(upcomings);
+
   weeklys = await weeklyBoxOffice();
 } catch (err) {
   console.log(err);
@@ -43,7 +47,7 @@ function draw(x) {
   }
   return text;
 }
-
+// 인기차트 스와이퍼
 new Swiper(".popSwiper", {
   // autoplay: {
   //   delay: 100,
@@ -55,7 +59,7 @@ new Swiper(".popSwiper", {
     prevEl: ".swiper-prev",
   },
 });
-
+// 개봉예정 스와이퍼
 new Swiper(".upcommingSwiper", {
   // autoplay: {
   //   delay: 200,
@@ -68,7 +72,7 @@ new Swiper(".upcommingSwiper", {
     prevEl: ".swiper-prev2",
   },
 });
-
+// 주말차트 스와이퍼
 new Swiper(".weeklySwiper", {
   autoplay: {
     delay: 1000,

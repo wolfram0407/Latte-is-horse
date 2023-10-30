@@ -5,7 +5,7 @@ const reviewValidation = (userData) => {
 
   let badcheck = true;
   badwords.find((element) => {
-    if (userData.review.includes(element) === true || userData.user.includes(element) === true || isCheckBadWord(userData.review)) {
+    if (userData.review.includes(element) === true || userData.user.includes(element) === true || !isCheckBadWord(userData.review)) {
       badcheck = false;
     }
   });
@@ -45,10 +45,10 @@ const isComparePassword = (inputPW, password) => {
 };
 
 const isCheckBadWord = (review) => {
-  let isWord = false;
+  let isWord = true;
   badwords.find((element) => {
     if (review.includes(element) === true) {
-      isWord = true;
+      isWord = false;
     }
   });
 

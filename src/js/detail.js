@@ -91,6 +91,7 @@ document.querySelectorAll(".editBtn").forEach((btn) =>
     const password = result.pw;
     const inputpw = prompt("비밀번호를 입력해주세요.");
     const editdata = [];
+
     if (isComparePassword(inputpw, password)) {
       const editreview = prompt("리뷰 내용 수정");
       if (isCheckBadWord(editreview)) {
