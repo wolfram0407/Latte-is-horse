@@ -1,7 +1,15 @@
 
+.title{
+  margin: 40px 0 6px;
+  color: rgb(255, 243, 78);
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
 /* MovieList */
 .upcoming-list,
-.popular-list {
+.popular-list,
+.weekly-list {
   padding: 20px;
   border-radius: 4px;
   background-color: var(--color-area);
@@ -10,13 +18,15 @@
 }
 
 .upcoming-list .message,
-.popular-list .message {
+.popular-list .message,
+.weekly-list .message {
   color: var(--color-primary);
   font-size: 20px;
   text-align: center;
 }
 .upcoming-list .upcomings,
-.popular-list .populars {
+.popular-list .populars,
+.weekly-list .weeklys {
   display: flex;
   gap: 35px;
 }
@@ -24,7 +34,8 @@
 
 /* MovieItem */
 .upcomings .movie,
-.populars .movie {
+.populars .movie,
+.weeklys .movie {
   --width: 200px;
   width: var(--width);
   height: calc(var(--width) * 3 / 2);
@@ -34,7 +45,8 @@
   overflow: hidden;
 }
 .upcomings .movie:hover::after,
-.populars .movie:hover::after {
+.populars .movie:hover::after,
+.weeklys .movie:hover::after {
   content: "";
   position: absolute;
   top: 0;
@@ -44,7 +56,8 @@
   border: 6px solid var(--color-primary);
 }
 .upcomings .movie .info,
-.populars .movie .info {
+.populars .movie .info,
+.weeklys .movie .info {
   background-color: rgba(14, 17, 27, .3);
   backdrop-filter: blur(10px);
   width: 100%;
@@ -57,17 +70,20 @@
   bottom: 0;
 }
 .upcomings .movie .info .year,
-.populars .movie .info .year {
+.populars .movie .info .year,
+.weeklys .movie .info .year {
   color: var(--color-primary);
 }
 .upcomings .movie .info .title,
-.populars .movie .info .title {
+.populars .movie .info .title,
+.weeklys .movie .info .title {
   color: var(--color-white);
 }
 
 /* Swiper  */ 
-.upcomings-list.swiper,
-.popular-list .swiper {
+.upcoming-list .swiper,
+.popular-list .swiper,
+.weekly-list .swiper {
   width: 100%;
   height: 300px;
   margin: 20px auto;
@@ -89,6 +105,8 @@
   height: 100%;
   object-fit: cover;
 }
+.swiper-prev3,
+.swiper-next3,
 .swiper-prev2,
 .swiper-next2,
 .swiper-prev,
@@ -108,20 +126,22 @@
   align-items: center;
   transition: .3s;
 }
+.swiper-prev3,
 .swiper-prev2,
 .swiper-prev {
   left: 1%;
 }
+.swiper-next3,
 .swiper-next2,
 .swiper-next {
   right: 1%;
-
 }
-
+.swiper-prev3:hover,
+.swiper-next3:hover,
 .swiper-prev2:hover,
 .swiper-next2:hover,
- .swiper-prev:hover,
- .swiper-next:hover {
+.swiper-prev:hover,
+.swiper-next:hover {
   background-color: #5726c7;
   color: #fff;
 }
