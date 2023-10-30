@@ -23,6 +23,7 @@ try {
 }
 
 moviesEl.innerHTML = draw(populars);
+
 commingEl.innerHTML = draw(upcomings);
 weeklyEl.innerHTML = draw(weeklys);
 inputEl.focus();
