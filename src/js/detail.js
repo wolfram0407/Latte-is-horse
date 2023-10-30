@@ -23,7 +23,7 @@ try {
 }
 drawItem_detail(getMovie);
 
-const parsingdata = JSON.parse(localStorage.getItem(`${getMovie.id}`));
+const parsingdata = JSON.parse(localStorage.getItem(`${getMovie.id}`)) ? JSON.parse(localStorage.getItem(`${getMovie.id}`)) : [];
 // 등록
 document
   .getElementById("reviewBtn")
