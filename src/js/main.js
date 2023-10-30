@@ -16,11 +16,7 @@ let upcomings;
 let weeklys;
 try {
   populars = await getMovies(page, 0);
-
   upcomings = await getMovies(page, 1);
-  console.log(populars);
-  console.log(upcomings);
-
   weeklys = await weeklyBoxOffice();
 } catch (err) {
   console.log(err);

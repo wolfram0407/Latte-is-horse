@@ -11,7 +11,7 @@ const options = {
 const getMovies = async (page, idx) => {
   let url = "";
   if (idx == 0) {
-    url = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=${page}`;
+    url = `https://api.themoviedb.org/3/movie/popular?language=ko-KR&region=KR&page=${page}`;
   } else if (idx == 1) {
     url = `https://api.themoviedb.org/3/movie/upcoming?language=ko-KR&region=KR&page=${page}`;
   }
