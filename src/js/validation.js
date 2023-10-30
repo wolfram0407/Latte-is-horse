@@ -45,10 +45,10 @@ const isComparePassword = (inputPW, password) => {
 };
 
 const isCheckBadWord = (review) => {
-  let isWord = true;
+  let isWord = false;
   badwords.find((element) => {
     if (review.includes(element) === true) {
-      isWord = false;
+      isWord = true;
     }
   });
 
