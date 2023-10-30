@@ -50,7 +50,7 @@ const findByOneDetail = async (search) => {
 };
 
 const weeklyBoxOffice = async () => {
-  const api_url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json";
+  const api_url = "https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json";
   const api_key = "8c82591d207517bee53548604aaff88d";
 
   const targetDt = "20231020";
@@ -81,6 +81,7 @@ const weeklyBoxOffice = async () => {
         results.push(temp);
       }
     }
+    console.log(results);
     return results;
   } catch (error) {
     console.log(error);
