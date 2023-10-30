@@ -55,4 +55,13 @@ const isCheckBadWord = (review) => {
   return isWord;
 };
 
-export { reviewValidation, isComparePassword, isCheckBadWord };
+const editValidation = (editData) => {
+  let check = true;
+  if (editData.length < 20 || editData.length > 400) {
+  alert(`리뷰는 20자 이상 400자 이하로 작성 부탁드립니다.`);
+  check = false;
+  }
+  return check;
+};
+
+export { reviewValidation, isComparePassword, isCheckBadWord, editValidation};
