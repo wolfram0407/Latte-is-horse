@@ -1,6 +1,6 @@
-import { getMovies } from "./movies.js";
+import { getMovies, weeklyBoxOffice } from "./movies.js";
 import { drawItems } from "./drawItems.js";
-import { weeklyBoxOffice } from "./weeklyBoxOffice.js";
+
 // 영화리스트
 const moviesEl = document.querySelector(".populars");
 const commingEl = document.querySelector(".upcomings");

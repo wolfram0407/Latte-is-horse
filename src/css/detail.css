@@ -331,7 +331,8 @@ h3 {
    word-wrap: break-word;
  }
 
- .removeBtn {
+.editBtn,
+.removeBtn {
    font-size: 12px;
    float: right;
    padding: 3px 5px 3px 5px;
@@ -340,6 +341,9 @@ h3 {
    background-color: var(--color-area);
    border: 1px;
    border-radius: 5px;
+ }
+ .editBtn{
+  margin-right: 10px;
  }
 
  .reviewBottom {
