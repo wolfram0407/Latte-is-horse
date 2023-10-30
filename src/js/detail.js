@@ -93,10 +93,7 @@ document.querySelectorAll(".removeBtn").forEach((btn) =>
 document.querySelectorAll(".editBtn").forEach((btn) =>
   btn.addEventListener("click", (event) => {
     console.log(event);
-    const reviewIndex =
-      event.target.parentElement.parentElement.parentElement.getAttribute(
-        "reviewIndex"
-      );
+    const reviewIndex = event.target.getAttribute("data");
     const inputpw = prompt("비밀번호를 입력해주세요.");
 
     if (inputpw) {
