@@ -1,0 +1,82 @@
+.Reviews {
+  border-radius: 10px;
+  height: auto;
+  padding: 20px;
+  background-color: var(--color-area);
+}
+
+#reviewFrom {
+  margin: 10px 5px 20px 5px;
+}
+
+.myReviews {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+#inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+#inputBox #userName {
+  width: 20%;
+  height: 20px;
+  outline: none;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-indent: 10px;
+  font-family: 'Roboto', sans-serif;
+  color: honeydew;
+  background-color: var(--color-black);
+}
+
+#inputBox #password {
+  width: 20%;
+  height: 20px;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  text-indent: 10px;
+  font-family: 'Roboto', sans-serif;
+  color: honeydew;
+  background-color: var(--color-black);
+}
+
+#inputBox #reviewText {
+  width: 100%;
+  resize: none;
+  outline: none;
+  padding: 10px 15px 10px 15px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  color: honeydew;
+  background-color: var(--color-black);
+}
+
+.reviewdiv {
+  display: flex;
+  height: 90px;
+  margin-top: 10px;
+  position: relative;
+}
+
+#reviewBtn {
+  width: 18%;
+  height: 100%;
+  font-size: 16px;
+}
+
+.allReviews {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+#reviewField {
+  margin-top: 15px;
+}

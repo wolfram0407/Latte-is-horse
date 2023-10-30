@@ -1,4 +1,11 @@
 
+.title{
+  margin: 40px 0 6px;
+  color: rgb(255, 243, 78);
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
 /* MovieList */
 .upcoming-list,
 .popular-list,
@@ -119,12 +126,12 @@
   align-items: center;
   transition: .3s;
 }
-.swiper-prev3
+.swiper-prev3,
 .swiper-prev2,
 .swiper-prev {
   left: 1%;
 }
-.swiper-next3
+.swiper-next3,
 .swiper-next2,
 .swiper-next {
   right: 1%;
