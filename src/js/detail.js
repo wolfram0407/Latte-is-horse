@@ -95,9 +95,9 @@ document.querySelectorAll(".editBtn").forEach((btn) =>
     if (isComparePassword(inputpw, password)) {
       const editreview = prompt("리뷰 내용 수정");
       if (!isCheckBadWord(editreview)) {
-        alert("욕쓰지마세요 ");
+        alert(`욕은 작성할 수 없습니다.`);
       } else if (!editValidation(editreview)) {
-        alert("너무 짧아요");
+        alert(`리뷰는 20자 이상 400자 이하로 작성 부탁드립니다.`);
       } else {
         result.review = editreview; //객체의 value를 수정
         editdata.push(...parsingdata);
