@@ -22,6 +22,7 @@ function displayReviews(reviewArray) {
               </div>
               <div>
                 <button class="removeBtn" data=${length}>삭제</button>
+                <button class="editBtn" data=${length}>수정</button>
               </div>
             </div>
           </div>

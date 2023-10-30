@@ -1,10 +1,11 @@
+const badwords = ["바보", "멍청이", "시발", "머저리", "새끼"];
+
 const reviewValidation = (userData) => {
   let check = true;
-  const badwords = ["바보", "멍청이", "시발", "머저리", "새끼"];
-  let badcheck = true;
 
-  badwords.forEach((element) => {
-    if (userData.review.includes(element) === true || userData.user.includes(element) === true) {
+  let badcheck = true;
+  badwords.find((element) => {
+    if (userData.review.includes(element) === true || userData.user.includes(element) === true || isCheckBadWord(userData.review)) {
       badcheck = false;
     }
   });
@@ -31,4 +32,27 @@ const isavailablepassword = (password) => {
   return passwordRegex.test(password);
 };
 
-export { reviewValidation };
+const isComparePassword = (inputPW, password) => {
+  let isSame = true;
+  if (inputPW === "") {
+    alert(`비밀번호를 입력해주세요!`);
+    isSame = false;
+  } else if (inputPW !== password) {
+    alert(`비밀번호가 일치하지 않습니다!`);
+    isSame = false;
+  }
+  return isSame;
+};
+
+const isCheckBadWord = (review) => {
+  let isWord = true;
+  badwords.find((element) => {
+    if (review.includes(element) === true) {
+      isWord = false;
+    }
+  });
+
+  return isWord;
+};
+
+export { reviewValidation, isComparePassword, isCheckBadWord };
