@@ -89,14 +89,8 @@ function setGenre() {
       }
       // console.log(selectedGenre);
       // getMovies(api_key + '&with_genres='+encodeURI(selectedGenre.join(',')));
-      let filtering = await getMovies2(selectedGenre);
+      showMovies(selectedGenre);
 
-      moviesEl.innerHTML = "";
-      let text = "";
-      for (const result of filtering.results) {
-        text += drawItems(result);
-        moviesEl.innerHTML = text;
-      }
       highlightSelection();
     })
     tagsEl.append(t);
@@ -133,7 +127,7 @@ function clearBtn() {
     clear.addEventListener('click', () => {
       selectedGenre = [];
       setGenre();
-      getMovies2(selectedGenre);
+      showMovies(selectedGenre);
     })
     tagsEl.append(clear);
   }
@@ -163,6 +157,17 @@ async function getMovies2(selectedGenre) {
     console.error(error);
   }
 
+}
+
+async function showMovies(selectedGenre) {
+  let filtering = await getMovies2(selectedGenre);
+
+  moviesEl.innerHTML = "";
+  let text = "";
+  for (const result of filtering.results) {
+    text += drawItems(result);
+  }
+  moviesEl.innerHTML = text;
 }
 
 export { setGenre };
